@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 4.4 - Listen & Tabellen</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .question-block { margin-bottom: 25px; padding: 15px; border-left: 5px solid #3498db; background: #fafafa; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+        .option { display: block; margin: 8px 0; padding: 10px; background: #eee; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .option:hover { background: #e0e0e0; }
+        input[type="radio"] { margin-right: 10px; }
+        .feedback { display: none; margin-top: 10px; padding: 10px; border-radius: 5px; font-size: 0.95em; }
+        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Selbstkontrolle: Listen & Tabellen</h1>
+    <p>Wähle die richtige Antwort aus, um sofort ein Feedback zu erhalten.</p>
+
+    <div class="question-block">
+        <div class="question-text">1. Welcher HTML-Tag wird für eine ungeordnete Liste (Aufzählungspunkte) verwendet?</div>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', true)"> &lt;ul&gt;</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> &lt;ol&gt;</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> &lt;li&gt;</label>
+        <div id="f1" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Wie lautet die korrekte Schachtelung für eine Tabellenzeile?</div>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', true)"> &lt;tr&gt; umschließt &lt;td&gt;</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> &lt;td&gt; umschließt &lt;tr&gt;</label>
+        <div id="f2" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Was passiert bei einer geordneten Liste (&lt;ol&gt;)?</div>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', true)"> Die Punkte werden automatisch nummeriert.</label>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', false)"> Die Liste wird fett gedruckt.</label>
+        <div id="f3" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Wofür steht der Tag &lt;th&gt;?</div>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', true)"> Table Header (Überschrift)</label>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', false)"> Table Height (Höhe)</label>
+        <div id="f4" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. Welcher Tag umschließt jeden einzelnen Listenpunkt?</div>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', true)"> &lt;li&gt;</label>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', false)"> &lt;point&gt;</label>
+        <div id="f5" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">6. Wie verschachtelt man eine Liste richtig?</div>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', true)"> Neue Liste innerhalb eines &lt;li&gt; der äußeren Liste.</label>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', false)"> Einfach nach dem &lt;/ul&gt; weiterschreiben.</label>
+        <div id="f6" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">7. Welches Attribut verbindet Spalten?</div>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', true)"> colspan</label>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', false)"> rowspan</label>
+        <div id="f7" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">8. Was bewirkt &lt;ol start="5"&gt;?</div>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', true)"> Die Nummerierung beginnt bei 5.</label>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', false)"> Es werden nur 5 Punkte angezeigt.</label>
+        <div id="f8" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">9. Welcher Tag umschließt die gesamte Tabelle?</div>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', true)"> &lt;table&gt;</label>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', false)"> &lt;grid&gt;</label>
+        <div id="f9" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">10. Warum nutzt man &lt;th&gt; statt &lt;td&gt; für Kopfzeilen?</div>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', true)"> Barrierefreiheit (Screenreader erkennen Überschriften).</label>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', false)"> Weil die Seite dann schneller lädt.</label>
+        <div id="f10" class="feedback"></div>
+    </div>
+
+</div>
+
+<script>
+    function showFeedback(id, isCorrect) {
+        const fb = document.getElementById(id);
+        fb.style.display = "block";
+        if (isCorrect) {
+            fb.innerHTML = "<strong>Richtig!</strong> Gut gemacht.";
+            fb.className = "feedback correct";
+        } else {
+            fb.innerHTML = "<strong>Leider falsch.</strong> Schau nochmal bei w3schools nach!";
+            fb.className = "feedback wrong";
+        }
+    }
+</script>
+
+</body>
+</html>
