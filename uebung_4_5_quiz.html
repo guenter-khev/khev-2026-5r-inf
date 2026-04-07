@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 4.5 - Dynamische Daten & Fetch</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #e67e22; padding-bottom: 10px; }
+        .nav-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db; font-weight: bold; }
+        .nav-link:hover { text-decoration: underline; }
+        .question-block { margin-bottom: 25px; padding: 15px; border-left: 5px solid #e67e22; background: #fafafa; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+        .option { display: block; margin: 8px 0; padding: 10px; background: #eee; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .option:hover { background: #e0e0e0; }
+        input[type="radio"] { margin-right: 10px; }
+        .feedback { display: none; margin-top: 10px; padding: 10px; border-radius: 5px; font-size: 0.95em; }
+        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    
+    <h1>Selbstkontrolle: Dynamische Daten & Fetch</h1>
+    <p>Teste dein Wissen über JavaScript, Arrays und Web-Services.</p>
+
+    <div class="question-block">
+        <div class="question-text">1. Welcher Befehl wird genutzt, um Daten von einer externen URL zu laden?</div>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', true)"> fetch()</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> getRemoteData()</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> loadService()</label>
+        <div id="f1" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. In welchem Format schicken moderne Web-Services (APIs) ihre Daten meistens?</div>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> HTML-Text</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', true)"> JSON</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> PDF</label>
+        <div id="f2" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Was bewirkt die Methode .json() nach einem fetch?</div>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', true)"> Sie wandelt die Antwort des Servers in ein JS-Objekt um.</label>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', false)"> Sie speichert die Daten auf der Festplatte.</label>
+        <div id="f3" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Welcher Index greift auf das ERSTE Element eines Arrays zu?</div>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', false)"> [1]</label>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', true)"> [0]</label>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', false)"> [first]</label>
+        <div id="f4" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. Wie fügt man ein neues Element (z.B. ein li) an eine Liste im DOM an?</div>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', false)"> liste.add(li)</label>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', true)"> liste.appendChild(li)</label>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', false)"> liste.attach(li)</label>
+        <div id="f5" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">6. Was bedeutet "asynchrone Programmierung" beim Fetch?</div>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', true)"> Der Browser wartet nicht blockiert, bis die Daten da sind.</label>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', false)"> Die Daten werden immer erst nach 10 Sekunden geladen.</label>
+        <div id="f6" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">7. Wofür steht DOM?</div>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', true)"> Document Object Model</label>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', false)"> Data Online Monitor</label>
+        <div id="f7" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">8. Welcher Befehl erzeugt ein komplett neues HTML-Element im Speicher?</div>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', true)"> document.createElement("...")</label>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', false)"> document.newTag("...")</label>
+        <div id="f8" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">9. Warum braucht ein fetch() oft zwei .then() Aufrufe?</div>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', true)"> Einer für die Antwort-Umwandlung, einer für die Datenverarbeitung.</label>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', false)"> Einer für den Download, einer für den Upload.</label>
+        <div id="f9" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">10. Wie greift man auf die Eigenschaft "name" eines Objekts "user" zu?</div>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', true)"> user.name</label>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', false)"> user->name</label>
+        <div id="f10" class="feedback"></div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    </footer>
+</div>
+
+<script>
+    function showFeedback(id, isCorrect) {
+        const fb = document.getElementById(id);
+        fb.style.display = "block";
+        if (isCorrect) {
+            fb.innerHTML = "<strong>Richtig!</strong> Sehr gut kombiniert.";
+            fb.className = "feedback correct";
+        } else {
+            fb.innerHTML = "<strong>Leider falsch.</strong> Tipp: Schau dir nochmal die .forEach() Schleife an!";
+            fb.className = "feedback wrong";
+        }
+    }
+</script>
+
+</body>
+</html>
