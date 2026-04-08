@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 4.3 - Bilder & Links</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #e67e22; padding-bottom: 10px; }
+        .nav-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db; font-weight: bold; }
+        .nav-link:hover { text-decoration: underline; }
+        .question-block { margin-bottom: 25px; padding: 15px; border-left: 5px solid #e67e22; background: #fafafa; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+        .option { display: block; margin: 8px 0; padding: 10px; background: #eee; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .option:hover { background: #e0e0e0; }
+        input[type="radio"] { margin-right: 10px; }
+        .feedback { display: none; margin-top: 10px; padding: 10px; border-radius: 5px; font-size: 0.95em; }
+        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    
+    <h1>Selbstkontrolle: Bilder & Links</h1>
+    <p>Teste dein Wissen über Zielattribute, Barrierefreiheit und Pfade.</p>
+
+    <div class="question-block">
+        <div class="question-text">1. Welchen Wert benötigt das target-Attribut, damit ein Link in einem neuen Tab geöffnet wird? </div>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> target="_self"</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', true)"> target="_blank"</label>
+        <div id="f1" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Welches Attribut liefert einen Alternativtext für ein Bild? </div>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> title="..."</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', true)"> alt="..."</label>
+        <div id="f2" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Welcher Pfad ist korrekt, um ein Bild aus deinem Unterordner "img" anzuzeigen? </div>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', false)"> src="C:/Users/Downloads/bild1.jpg"</label>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', true)"> src="img/bild1.jpg"</label>
+        <div id="f3" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Wie springst du zu einer Überschrift mit der ID "top"? </div>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', true)"> href="#top"</label>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', false)"> href="top"</label>
+        <div id="f4" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. Was fehlt in diesem Code, damit das Bild als Link funktioniert? &lt;a href="..."&gt; </div>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', false)"> Der &lt;p&gt; Tag.</label>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', true)"> Der &lt;/a&gt; Abschluss-Tag nach dem Bild.</label>
+        <div id="f5" class="feedback"></div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    </footer>
+</div>
+
+<script>
+    function showFeedback(id, isCorrect) {
+        const fb = document.getElementById(id);
+        fb.style.display = "block";
+        if (isCorrect) {
+            fb.innerHTML = "<strong>Richtig!</strong> Das hast du im Griff.";
+            fb.className = "feedback correct";
+        } else {
+            fb.innerHTML = "<strong>Nicht ganz.</strong> Schau dir nochmal das Arbeitsblatt 4.3 an!";
+            fb.className = "feedback wrong";
+        }
+    }
+</script>
+
+</body>
+</html>
