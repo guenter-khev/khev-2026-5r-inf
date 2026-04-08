@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 4.1 - GitHub Pages & Hosting</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #e67e22; padding-bottom: 10px; }
+        .nav-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db; font-weight: bold; }
+        .nav-link:hover { text-decoration: underline; }
+        .question-block { margin-bottom: 25px; padding: 15px; border-left: 5px solid #e67e22; background: #fafafa; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+        .option { display: block; margin: 8px 0; padding: 10px; background: #eee; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .option:hover { background: #e0e0e0; }
+        input[type="radio"] { margin-right: 10px; }
+        .feedback { display: none; margin-top: 10px; padding: 10px; border-radius: 5px; font-size: 0.95em; }
+        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    
+    <h1>Selbstkontrolle: GitHub Pages & Hosting</h1>
+    <p>Prüfe dein Wissen über Repositories und das Veröffentlichen von Webseiten.</p>
+
+    <div class="question-block">
+        <div class="question-text">1. Was ist ein "Repository" auf GitHub?</div>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', true)"> Ein digitaler Projektordner für Code und Dateien.</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> Ein spezieller Browser für Informatiker.</label>
+        <div id="f1" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Warum muss die Hauptseite fast immer "index.html" heißen?</div>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', true)"> Weil Webserver diese Datei automatisch als Startseite suchen.</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> Weil der Name kürzer zu tippen ist.</label>
+        <div id="f2" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Unter welchem Menüpunkt aktiviert man GitHub Pages?</div>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', false)"> Code -> Pull Requests</label>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', true)"> Settings -> Pages</label>
+        <div id="f3" class="feedback"></div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    </footer>
+</div>
+
+<script>
+    function showFeedback(id, isCorrect) {
+        const fb = document.getElementById(id);
+        fb.style.display = "block";
+        if (isCorrect) {
+            fb.innerHTML = "<strong>Richtig!</strong> Du hast das Hosting-Prinzip verstanden.";
+            fb.className = "feedback correct";
+        } else {
+            fb.innerHTML = "<strong>Nicht ganz.</strong> Tipp: Schau dir nochmal die GitHub-Anleitung auf deinem Arbeitsblatt an!";
+            fb.className = "feedback wrong";
+        }
+    }
+</script>
+
+</body>
+</html>
