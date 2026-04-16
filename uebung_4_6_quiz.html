@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 4.6 - Medien und Lizenzen</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .nav-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db; font-weight: bold; }
+        .nav-link:hover { text-decoration: underline; }
+        .question-block { margin-bottom: 25px; padding: 15px; border-left: 5px solid #3498db; background: #fafafa; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+        .option { display: block; margin-bottom: 8px; cursor: pointer; padding: 8px; border-radius: 5px; transition: background 0.3s; }
+        .option:hover { background: #edf2f7; }
+        input[type="radio"] { margin-right: 10px; }
+        .feedback { display: none; margin-top: 10px; padding: 10px; border-radius: 5px; }
+        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <a href="index.html" class="nav-link">← Zurück zur Übersicht</a>
+    <h1>Quiz 4.6 - Medien und Lizenzen</h1>
+    <p>Testen Sie Ihr Wissen über Creative Commons und die korrekte Einbindung von Bildern.</p>
+
+    <div class="question-block">
+        <div class="question-text">1. Was bedeutet das CC-Kürzel "BY"?</div>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', true)"> Namensnennung des Urhebers.</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> Bild darf nur bis 12 Uhr genutzt werden.</label>
+        <div id="f1" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Was bedeutet das Kürzel "SA" (Share Alike)?</div>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', true)"> Weitergabe unter gleichen Bedingungen.</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> Das Bild muss sofort gelöscht werden.</label>
+        <div id="f2" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Darf ein Bild mit dem Kürzel "NC" für eine kommerzielle Werbeanzeige genutzt werden?</div>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', false)"> Ja, solange der Name dabeisteht.</label>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', true)"> Nein, "NC" steht für "Non-Commercial".</label>
+        <div id="f3" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Welche drei Angaben müssen laut Leitfaden zwingend beim Bild stehen?</div>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', true)"> Urheber, Quelle/Titel und Lizenz.</label>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', false)"> Nur der Link zu Google.</label>
+        <div id="f4" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. Reicht es aus, den Lizenznamen (z.B. CC BY 4.0) nur als Text ohne Link hinzuschreiben?</div>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', false)"> Ja, der Text ist eindeutig genug.</label>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', true)"> Nein, die Lizenz muss direkt zur Lizenzurkunde verlinkt sein.</label>
+        <div id="f5" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">6. Wo müssen die Bildangaben auf der Website platziert werden?</div>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', true)"> Direkt bei der Abbildung (darüber oder darunter).</label>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', false)"> Nur ganz unten im Impressum.</label>
+        <div id="f6" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">7. Welches HTML-Tag ist am besten geeignet, um ein Bild und seine Beschriftung zu gruppieren?</div>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', true)"> &lt;figure&gt;</label>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', false)"> &lt;div class="box"&gt;</label>
+        <div id="f7" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">8. Was ist die rechtliche Folge, wenn man einen Link zur Lizenz vergisst?</div>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', true)"> Es gilt als Urheberrechtsverletzung und kann teure Abmahnungen zur Folge haben.</label>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', false)"> Es passiert nichts, solange der Name des Fotografen da steht.</label>
+        <div id="f8" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">9. Welches Attribut im &lt;img&gt;-Tag ist für die Barrierefreiheit besonders wichtig?</div>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', true)"> alt="Beschreibung"</label>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', false)"> border="1"</label>
+        <div id="f9" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">10. Was bedeutet "ND" (No Derivatives)?</div>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', true)"> Keine Bearbeitung des Bildes erlaubt.</label>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', false)"> Nur für digitale Bilder erlaubt.</label>
+        <div id="f10" class="feedback"></div>
+    </div>
+
+    <a href="index.html" class="nav-link">← Zurück zur Übersicht</a>
+</div>
+
+<script>
+    function showFeedback(id, isCorrect) {
+        const fb = document.getElementById(id);
+        fb.style.display = "block";
+        if (isCorrect) {
+            fb.innerHTML = "<strong>Richtig!</strong> Gut gemacht.";
+            fb.className = "feedback correct";
+        } else {
+            fb.innerHTML = "<strong>Leider falsch.</strong> Schau nochmal in das PDF 'Korrekte Angaben bei CC-Lizenzen'.";
+            fb.className = "feedback wrong";
+        }
+    }
+</script>
+
+</body>
+</html>
