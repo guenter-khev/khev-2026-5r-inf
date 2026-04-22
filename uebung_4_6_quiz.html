@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 4.6 - Medien und Lizenzen verwenden</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #e67e22; padding-bottom: 10px; }
+        .nav-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db; font-weight: bold; }
+        .nav-link:hover { text-decoration: underline; }
+        .question-block { margin-bottom: 25px; padding: 15px; border-left: 5px solid #e67e22; background: #fafafa; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+        .option { display: block; margin: 8px 0; padding: 10px; background: #eee; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .option:hover { background: #e0e0e0; }
+        input[type="radio"] { margin-right: 10px; }
+        .feedback { display: none; margin-top: 10px; padding: 10px; border-radius: 5px; font-size: 0.95em; }
+        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    
+    <h1>Selbstkontrolle: Medien und Lizenzen verwenden</h1>
+    <p>Teste dein Wissen über Bilder, Creative Commons und rechtssichere Referenzierung.</p>
+
+    <div class="question-block">
+        <div class="question-text">1. Welches HTML-Element wird genutzt, um ein Bild auf einer Webseite anzuzeigen?</div>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> &lt;picture src="bild.jpg"&gt;</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', true)"> &lt;img src="bild.jpg" alt="Beschreibung"&gt;</label>
+        <label class="option"><input type="radio" name="q1" onclick="showFeedback('f1', false)"> &lt;image href="bild.jpg"&gt;</label>
+        <div id="f1" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Was bedeutet das Kürzel „BY" bei einer Creative-Commons-Lizenz?</div>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> Das Bild darf nicht kommerziell genutzt werden.</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', true)"> Der Urheber muss namentlich genannt werden.</label>
+        <label class="option"><input type="radio" name="q2" onclick="showFeedback('f2', false)"> Das Werk darf nicht verändert werden.</label>
+        <div id="f2" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Wofür steht das Kürzel „NC" in einer CC-Lizenz?</div>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', true)"> NonCommercial – keine kommerzielle Nutzung erlaubt.</label>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', false)"> NoCopy – das Bild darf nicht kopiert werden.</label>
+        <label class="option"><input type="radio" name="q3" onclick="showFeedback('f3', false)"> NewContent – das Werk muss verändert werden.</label>
+        <div id="f3" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Welche drei Angaben müssen laut der TULLU-Regel bei fast jeder CC-Lizenz direkt beim Bild stehen?</div>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', false)"> Dateigröße, Auflösung und Farbraum</label>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', false)"> Titel, Erscheinungsjahr und Verlag</label>
+        <label class="option"><input type="radio" name="q4" onclick="showFeedback('f4', true)"> Urheber, Quelle (Link zum Original) und Lizenz (mit Link)</label>
+        <div id="f4" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. Reicht die Angabe „Quelle: Wikipedia" als Lizenzhinweis aus?</div>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', false)"> Ja, der Name der Plattform genügt.</label>
+        <label class="option"><input type="radio" name="q5" onclick="showFeedback('f5', true)"> Nein, es fehlen Urheber, direkter Link zur Quelle und die verlinkte Lizenz.</label>
+        <div id="f5" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">6. Welches HTML-Element wird empfohlen, um ein Bild gemeinsam mit seiner Bildunterschrift (Caption) semantisch korrekt zu gruppieren?</div>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', false)"> &lt;div&gt; und &lt;p&gt;</label>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', true)"> &lt;figure&gt; und &lt;figcaption&gt;</label>
+        <label class="option"><input type="radio" name="q6" onclick="showFeedback('f6', false)"> &lt;section&gt; und &lt;caption&gt;</label>
+        <div id="f6" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">7. Wo müssen die Lizenzangaben auf einer Webseite stehen?</div>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', false)"> Irgendwo im Impressum der Website.</label>
+        <label class="option"><input type="radio" name="q7" onclick="showFeedback('f7', true)"> Direkt über oder unter dem verwendeten Bild.</label>
+        <div id="f7" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">8. Was kann passieren, wenn der Link zur Lizenz bei einem CC-Bild fehlt?</div>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', false)"> Nichts – der Name des Urhebers reicht aus.</label>
+        <label class="option"><input type="radio" name="q8" onclick="showFeedback('f8', true)"> Es kann zu teuren Abmahnungen kommen, da die Lizenzbedingung nicht erfüllt ist.</label>
+        <div id="f8" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">9. Ein Schüler schreibt: „Foto: Max Mustermann, CC BY". Was fehlt laut der Anleitung?</div>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', false)"> Das Erscheinungsjahr des Fotos.</label>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', true)"> Der direkte Link zur Bildquelle und der Link zur Lizenz – alle Angaben müssen klickbare Links sein.</label>
+        <label class="option"><input type="radio" name="q9" onclick="showFeedback('f9', false)"> Die Dateigröße des Bildes.</label>
+        <div id="f9" class="feedback"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">10. Auf welchen Plattformen findet man Bilder mit Creative-Commons-Lizenz, die man für Schulprojekte verwenden kann?</div>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', false)"> Google Bilder und Pinterest</label>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', true)"> Wikimedia Commons und Flickr (CC-gefiltert)</label>
+        <label class="option"><input type="radio" name="q10" onclick="showFeedback('f10', false)"> Instagram und Unsplash (ohne Lizenzprüfung)</label>
+        <div id="f10" class="feedback"></div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="nav-link">← Zurück zur Übersicht (Home)</a>
+    </footer>
+</div>
+
+<script>
+    function showFeedback(id, isCorrect) {
+        const fb = document.getElementById(id);
+        fb.style.display = "block";
+        if (isCorrect) {
+            fb.innerHTML = "<strong>Richtig!</strong> Sehr gut kombiniert.";
+            fb.className = "feedback correct";
+        } else {
+            fb.innerHTML = "<strong>Leider falsch.</strong> Tipp: Schau dir nochmal die Anleitung zur TULLU-Regel und den CC-Lizenzen an!";
+            fb.className = "feedback wrong";
+        }
+    }
+</script>
+
+</body>
+</html>
